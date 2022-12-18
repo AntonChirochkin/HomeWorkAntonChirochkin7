@@ -40,14 +40,14 @@ public class Main {
     public static void task3() {
         System.out.println("Задача 3");
         int population = 12_000_000;
-        int birthRate = (12_000_000 / 1000) * 17;
-        int mortality = (12_000_000 / 1000) * 8;
-        int populationNext = birthRate - mortality;
+        int birthRate = 0;
+        int mortality = 0;
         int year = 2022;
         while (year <= 2032) {
-            population = population + populationNext;
+            birthRate = (population / 1000) * 17;
+            mortality = (population / 1000) * 8;
+            population += birthRate - mortality;
             year = year + 1;
-
             System.out.println("Год " + year + ", численность населения составляет " + population + " миллионов человек.");
         }
     }
@@ -84,8 +84,8 @@ public class Main {
         System.out.println("Задача 6");
         float cantribution = 15000;
         float persent = 7f;
-        long mounth;
-        int totalMounth = 9 * 12;
+        long mounth = 0;
+        int totalMounth = 9 * 12; 
         while (mounth < totalMounth) {
             cantribution += cantribution * (persent / 100);
             mounth = mounth + 1;
@@ -109,13 +109,15 @@ public class Main {
 
     public static void task8() {
         System.out.println("Задача 8");
-        int year1 = 2022;
+        int yearPast = 2022 - 200;
+        int yearPresent = 2022;
         int year2 = 2022 + 100;
-        int comet = 0;
-        while (comet < year1 && comet < year2) {
-            comet = comet + 79;
-            if (comet > 1822 && comet < year2)
-            System.out.println(comet);
+        int zeroYearComet = 0;
+        int yearsUntilNewComet = 79;
+        while (zeroYearComet < yearPresent && zeroYearComet < year2) {
+            zeroYearComet = zeroYearComet + yearsUntilNewComet;
+            if (zeroYearComet > yearPast && zeroYearComet < year2)
+            System.out.println(zeroYearComet);
         }
     }
 }
